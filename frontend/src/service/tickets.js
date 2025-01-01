@@ -51,13 +51,6 @@ export function LocalizarMensagens (params) {
   })
 }
 
-export function CountMensage (params) {
-  return request({
-    url: '/count/messages',
-    method: 'get',
-    params
-  })
-}
 export function EnviarMensagemTexto (ticketId, data) {
   return request({
     url: `/messages/${ticketId}`,

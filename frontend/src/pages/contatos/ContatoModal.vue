@@ -19,7 +19,7 @@
       </q-card-section>
       <q-card-section class="q-pa-sm q-pl-md row q-col-gutter-md">
         <c-input
-          class="col-6"
+          class="col-12"
           outlined
           v-model="contato.name"
           :validator="$v.contato.name"
@@ -27,28 +27,29 @@
           label="Nome"
         />
         <c-input
-          class="col-6"
+          class="col-12"
           outlined
           v-model="contato.number"
           :validator="$v.contato.number"
           @blur="$v.contato.number.$touch"
           mask="+#############"
-          placeholder="+DDI (DDD) 99999 9999"
+          placeholder="+DDI DDD 99999 9999"
           fill-mask
           unmasked-value
-          hint="Número do celular deverá conter 9 dígitos e ser precedido do DDI E DDD. "
+          hint="Informe número com DDI e DDD"
           label="Número"
         />
         <c-input
           class="col-12"
           outlined
+          dense
+          rounded
           :validator="$v.contato.email"
           @blur="$v.contato.email.$touch"
           v-model="contato.email"
           label="E-mail"
         />
       </q-card-section>
-      <q-card-section>
         <q-card
           class="bg-white q-mt-sm btn-rounded"
           style="width: 100%"
@@ -117,7 +118,6 @@
             </q-select>
           </q-card-section>
         </q-card>
-      </q-card-section>
       <q-card-section class="q-pa-sm q-pl-md text-bold">
         Informações adicionais
       </q-card-section>
@@ -130,12 +130,16 @@
             <q-input
               class="col-6"
               outlined
+              dense
+              rounded
               v-model="extraInfo.name"
               label="Descrição"
             />
             <q-input
               class="col-5"
               outlined
+              dense
+              rounded
               label="Informação"
               v-model="extraInfo.value"
             />
@@ -156,6 +160,7 @@
             class="full-width"
             color="primary"
             outline
+            rounded
             label="Adicionar Informação"
             @click="contato.extraInfo.push({name: null, value: null})"
           />
@@ -166,7 +171,7 @@
         class="q-mt-lg"
       >
         <q-btn
-          flat
+          rounded
           label="Sair"
           color="negative"
           v-close-popup
@@ -174,9 +179,9 @@
         />
         <q-btn
           class="q-ml-lg q-px-md"
-          flat
+          rounded
           label="Salvar"
-          color="primary"
+          color="positive"
           @click="saveContact"
         />
       </q-card-actions>

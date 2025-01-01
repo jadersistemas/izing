@@ -18,6 +18,7 @@
         <q-btn
           color="primary"
           label="Adicionar"
+          rounded
           @click="mensagemRapidaEmEdicao = {}; modalMensagemRapida = true"
         />
       </template>
@@ -71,7 +72,7 @@ export default {
       columns: [
         { name: 'id', label: '#', field: 'id', align: 'left' },
         { name: 'key', label: 'Chave', field: 'key', align: 'left' },
-        { name: 'message', label: 'Mensagem', field: 'message', align: 'left' },
+        { name: 'message', label: 'Mensagem', field: 'message', align: 'left', classes: 'ellipsis', style: 'max-width: 400px;' },
         { name: 'acoes', label: 'Ações', field: 'acoes', align: 'center' }
 
       ],
